@@ -15,7 +15,7 @@ class Node:
         self.photos = (self.photos, other.photos)
         return self
 
-f = open("a_example.txt", "r")
+f = open("b_lovely_landscapes.txt", "r")
 w = open("output.txt", "w+")
 contents = f.readlines()
 a = int(contents[0])
@@ -60,9 +60,10 @@ def computeMaximum(n):
             break
         temp = interest(n, nV)
         if(temp > val):
-            temp = val
+            val = temp
             ans = nV
         i = i + 1
+    #print(val)
     notVisited.remove(nV)
     return nV
 
@@ -77,7 +78,7 @@ def display(n):
 
 currentNode = notVisited.pop()
 while len(notVisited) != 0:
-    print(len(notVisited))
+    #print(len(notVisited))
     display(currentNode)
     next = computeMaximum(currentNode)
     currentNode = next
