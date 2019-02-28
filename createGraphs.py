@@ -16,6 +16,7 @@ class Node:
         return self
 
 f = open("a_example.txt", "r")
+w = open("output.txt", "w+")
 contents = f.readlines()
 a = int(contents[0])
 horizontal = []
@@ -53,25 +54,30 @@ def interest(a, b):
 
 def computeMaximum(n):
     ans, val = None, -1
+    i = 0
     for nV in notVisited:
+        if(i > 1000):
+            break
         temp = interest(n, nV)
         if(temp > val):
             temp = val
             ans = nV
+        i = i + 1
     notVisited.remove(nV)
     return nV
 
-print(len(notVisited))
+w.write(str(len(notVisited))+"\n")
 
 
 def display(n):
     if n.type == "V":
-        print(n.photos[0], n.photos[1])
+        w.write(str(n.photos[0])+" "+str( n.photos[1])+"\n")
     else:
-        print(n.photos)
+        w.write(str(n.photos)+"\n")
 
 currentNode = notVisited.pop()
 while len(notVisited) != 0:
+    print(len(notVisited))
     display(currentNode)
     next = computeMaximum(currentNode)
     currentNode = next
