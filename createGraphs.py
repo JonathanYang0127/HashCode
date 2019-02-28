@@ -38,7 +38,6 @@ for i in range(0, len(vertical), 2):
 vertical = verticalCombined 
   
 nodes = horizontal + vertical
-print(nodes)
 
 #compute greedy path
 notVisited = set()
