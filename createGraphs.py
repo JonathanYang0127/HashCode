@@ -56,12 +56,14 @@ def computeMaximum(n):
     ans, val = None, -1
     i = 0
     for nV in notVisited:
-        if(i > 1000):
-            break
+        #if(i > 1000):
+            #break
         temp = interest(n, nV)
         if(temp > val):
             val = temp
             ans = nV
+        if val >= 3:
+            break;
         i = i + 1
     #print(val)
     notVisited.remove(nV)
@@ -78,7 +80,7 @@ def display(n):
 
 currentNode = notVisited.pop()
 while len(notVisited) != 0:
-    #print(len(notVisited))
+    print(len(notVisited))
     display(currentNode)
     next = computeMaximum(currentNode)
     currentNode = next
